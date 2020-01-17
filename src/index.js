@@ -20,6 +20,7 @@ import { GitHub } from "@material-ui/icons";
 // import { generateGradient } from "./utils";
 import RegisterForm from "./components/forms/RegisterForm";
 import GitHubUserInput from "./components/inputs/GitHubUserInput";
+import PasswordInput from "./components/inputs/PasswordInput";
 
 const theme = createMuiTheme({
   palette: {
@@ -40,11 +41,14 @@ const theme = createMuiTheme({
 const useStyles = makeStyles({
   title: {
     display: "block",
-    margin: "24px 0px",
+    margin: "24px 0 0 0",
     textAlign: "center",
     textTransform: "uppercase",
     fontSize: 20,
     fontWeight: "bold"
+  },
+  input: {
+    marginTop: 24
   },
   locationTitle: {
     marginTop: "14px"
@@ -78,7 +82,21 @@ function App() {
           Crie sua conta
         </Typography>
         <RegisterForm>
-          <GitHubUserInput name="github_user" />
+          <GitHubUserInput
+            className={classes.input}
+            name="github_user"
+            label="Usuário GitHub"
+          />
+          <PasswordInput
+            className={classes.input}
+            name="password"
+            label="Senha"
+          />
+          <PasswordInput
+            className={classes.input}
+            name="password_confimation"
+            label="Confirme sua senha"
+          />
         </RegisterForm>
         {/* <form>
           <TextField

@@ -26,7 +26,9 @@ const isGitHubValid = username => {
   });
 };
 
-export default function GitHubUserInput({ name }) {
+export default function GitHubUserInput(props) {
+  const { name, label } = props;
+
   const inputRef = useRef();
   const { registerField } = useContext(RegisterFormContext);
 
@@ -60,12 +62,13 @@ export default function GitHubUserInput({ name }) {
 
   return (
     <TextField
+      {...props}
       error={hasError}
       helperText={hasError && errorMsg}
       id={name}
       name={name}
       inputRef={inputRef}
-      label="Usuário GitHub"
+      label={label}
       InputLabelProps={{
         shrink: true
       }}
